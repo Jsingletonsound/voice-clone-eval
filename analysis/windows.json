@@ -1,0 +1,109 @@
+{
+  "_note": "Word windows in seconds on each canonical file. Approximate until James confirms by ear; set confirmed to true once he has. Line 3 clone 2 windows were set on the re-bounced keeper (2026-10-07) with the same rule that reproduces the brief's windows for L3_me: S = span where 4-11 kHz energy is within 10 dB of its pre-voicing max; vowel = voicing onset + 0.05 s for 0.22 s. L2 clone 'then' 1.40-1.71 s is James's own RX selection (3.400-3.708 in his session, file offset 2.0 s).",
+  "L1": {
+    "Hozier": {
+      "L1_me": [
+        4.85,
+        5.45
+      ],
+      "L1_clone": [
+        4.85,
+        5.55
+      ],
+      "confirmed": true
+    },
+    "Hozier -er crackle": {
+      "L1_clone": [
+        5.32,
+        5.53
+      ],
+      "confirmed": true
+    }
+  },
+  "L2": {
+    "Get": {
+      "L2_me": [
+        0.42,
+        0.62
+      ],
+      "L2_clone": [
+        0.06,
+        0.3
+      ],
+      "confirmed": true
+    },
+    "then": {
+      "L2_me": [
+        1.72,
+        1.95
+      ],
+      "L2_clone": [
+        1.4,
+        1.71
+      ],
+      "confirmed": true
+    }
+  },
+  "L3": {
+    "S in So": {
+      "L3_me": [
+        0.27,
+        0.48
+      ],
+      "L3_clone1": [
+        0.1,
+        0.31
+      ],
+      "L3_clone2": [
+        0.17,
+        0.34
+      ],
+      "confirmed": true
+    },
+    "o in So (vowel after the S)": {
+      "L3_me": [
+        0.52,
+        0.75
+      ],
+      "L3_clone1": [
+        0.36,
+        0.58
+      ],
+      "L3_clone2": [
+        0.4,
+        0.62
+      ],
+      "confirmed": true
+    },
+    "So": {
+      "L3_me": [
+        0.5,
+        1.2
+      ],
+      "L3_clone1": [
+        0.3,
+        0.85
+      ],
+      "L3_clone2": [
+        0.35,
+        0.85
+      ],
+      "confirmed": true
+    },
+    "what are you in the mood for": {
+      "L3_me": [
+        2.0,
+        3.2
+      ],
+      "L3_clone1": [
+        1.25,
+        2.05
+      ],
+      "L3_clone2": [
+        1.24,
+        2.08
+      ],
+      "confirmed": true
+    }
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "_note": "Callout regions in each file's own time (seconds) and frequency (Hz). Labels are plain descriptions of what is marked. Set confirmed to true only after James has listened to the timestamp. Unconfirmed callouts render dashed and say so. A4 (room tone after the word on James's take) was removed: his line 1 bounce fades out 0.2 s after the word, so no window there shows room tone. A1/S1c confirmed by James by ear on 2026-10-07. James confirmed every callout by ear on 2026-10-07.",
+  "A": [
+    {
+      "id": "A1",
+      "label": "\"-er\": crackle, sharp clicks on a thin tone",
+      "file": "L1_clone",
+      "t": [
+        5.32,
+        5.53
+      ],
+      "f": [
+        60,
+        7500
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "A2",
+      "label": "Pitch: one steady fall, then a single dip into the \"-er\"",
+      "file": "L1_me",
+      "t": [
+        4.88,
+        5.3
+      ],
+      "f": [
+        80,
+        220
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "A3",
+      "label": "Pitch: two dips, down and back up twice",
+      "file": "L1_clone",
+      "t": [
+        4.92,
+        5.36
+      ],
+      "f": [
+        80,
+        220
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "A6",
+      "label": "Below the fundamental: my room, lifted by the fry on the \"-er\"",
+      "file": "L1_me",
+      "t": [
+        4.88,
+        5.4
+      ],
+      "f": [
+        20,
+        45
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "A7",
+      "label": "Below the fundamental: a steady smear",
+      "file": "L1_clone",
+      "t": [
+        4.88,
+        5.5
+      ],
+      "f": [
+        20,
+        45
+      ],
+      "confirmed": true
+    }
+  ],
+  "B": [
+    {
+      "id": "B1",
+      "label": "S: broad, noise-like",
+      "file": "L3_me",
+      "t": [
+        0.27,
+        0.48
+      ],
+      "f": [
+        3400,
+        9700
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "B2",
+      "label": "S: narrow tonal streak",
+      "file": "L3_clone2",
+      "t": [
+        0.17,
+        0.34
+      ],
+      "f": [
+        4000,
+        4900
+      ],
+      "confirmed": true
+    }
+  ],
+  "strips": {
+    "L1": [
+      {
+        "id": "S1a",
+        "label": "\"Hozier\"",
+        "file": "L1_me",
+        "t": [
+          4.85,
+          5.45
+        ],
+        "f": [
+          0,
+          12000
+        ],
+        "confirmed": true
+      },
+      {
+        "id": "S1b",
+        "label": "\"Hozier\"",
+        "file": "L1_clone",
+        "t": [
+          4.85,
+          5.55
+        ],
+        "f": [
+          0,
+          12000
+        ],
+        "confirmed": true
+      },
+      {
+        "id": "S1c",
+        "label": "\"-er\" crackle",
+        "file": "L1_clone",
+        "t": [
+          5.32,
+          5.53
+        ],
+        "f": [
+          0,
+          4000
+        ],
+        "confirmed": true
+      }
+    ],
+    "L2": [
+      {
+        "id": "S2a",
+        "label": "\"Get\"",
+        "file": "L2_me",
+        "t": [
+          0.42,
+          0.62
+        ],
+        "f": [
+          0,
+          12000
+        ],
+        "confirmed": true
+      },
+      {
+        "id": "S2b",
+        "label": "\"Get\": upper formant",
+        "file": "L2_clone",
+        "t": [
+          0.06,
+          0.3
+        ],
+        "f": [
+          0,
+          12000
+        ],
+        "confirmed": true
+      },
+      {
+        "id": "S2c",
+        "label": "\"then\"",
+        "file": "L2_me",
+        "t": [
+          1.72,
+          1.95
+        ],
+        "f": [
+          0,
+          12000
+        ],
+        "confirmed": true
+      },
+      {
+        "id": "S2d",
+        "label": "\"then\": upper formant",
+        "file": "L2_clone",
+        "t": [
+          1.4,
+          1.71
+        ],
+        "f": [
+          0,
+          12000
+        ],
+        "confirmed": true
+      }
+    ],
+    "L3": [
+      {
+        "id": "S4a",
+        "label": "S in \"So\"",
+        "file": "L3_me",
+        "t": [
+          0.27,
+          0.48
+        ],
+        "f": [
+          2000,
+          12000
+        ],
+        "confirmed": true
+      },
+      {
+        "id": "S4b",
+        "label": "S in \"So\"",
+        "file": "L3_clone1",
+        "t": [
+          0.1,
+          0.31
+        ],
+        "f": [
+          2000,
+          12000
+        ],
+        "confirmed": true
+      },
+      {
+        "id": "S4c",
+        "label": "S in \"So\"",
+        "file": "L3_clone2",
+        "t": [
+          0.17,
+          0.34
+        ],
+        "f": [
+          2000,
+          12000
+        ],
+        "confirmed": true
+      }
+    ]
+  },
+  "D": [
+    {
+      "id": "D1",
+      "label": "\"Get\": 3–4 kHz runs hot",
+      "file": "L2_clone",
+      "word": "Get",
+      "t": [
+        0.06,
+        0.3
+      ],
+      "f": [
+        3000,
+        4000
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "D2",
+      "label": "\"then\": 3–4 kHz runs hot",
+      "file": "L2_clone",
+      "word": "then",
+      "t": [
+        1.4,
+        1.71
+      ],
+      "f": [
+        3000,
+        4000
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "D3",
+      "label": "\"Get\": mine",
+      "file": "L2_me",
+      "word": "Get",
+      "t": [
+        0.42,
+        0.62
+      ],
+      "f": [
+        3000,
+        4000
+      ],
+      "confirmed": true
+    },
+    {
+      "id": "D4",
+      "label": "\"then\": mine",
+      "file": "L2_me",
+      "word": "then",
+      "t": [
+        1.72,
+        1.95
+      ],
+      "f": [
+        3000,
+        4000
+      ],
+      "confirmed": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Raw bounces and intermediates stay local; the page ships level-matched clips only.
+source/
+work/
+.venv/
+__pycache__/
+.DS_Store
+review/

@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My voice vs. my AI clone</title>
+<meta name="description" content="An independent quality evaluation of an AI voice clone against the original speaker, by sound editor James Singleton: a repeatable rubric, A/B listening, and measurements from the audio.">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0f17'/%3E%3Crect x='7' y='12' width='3' height='8' fill='%23d07c26'/%3E%3Crect x='12' y='7' width='3' height='18' fill='%23d07c26'/%3E%3Crect x='17' y='9' width='3' height='14' fill='%231fa3b2'/%3E%3Crect x='22' y='13' width='3' height='6' fill='%231fa3b2'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<aside class="draft" id="draft" hidden aria-label="Draft status">
+  <strong>Draft.</strong> <span id="draft-items">Open items are marked on the page.</span>
+</aside>
+
+<header class="hero" id="top">
+  <div class="hero-band" aria-hidden="true"><div class="hero-band-track"></div></div>
+  <div class="wrap hero-inner">
+    <p class="kicker mono">Independent evaluation · AI voice quality</p>
+    <h1>My voice vs. my AI clone</h1>
+    <p class="headline">My AI clone passes for me until it meets an ear trained by over ten years in sound and the acoustics to explain what it hears: it breathes where I wouldn't, sits <span class="m" data-m="lines.L1.f0_diff_st" data-fmt="int">–</span> to <span class="m" data-m="lines.L3.f0_diff_st" data-fmt="int">–</span> semitones high, and runs its upper formants <span class="m" data-m="lines.L1.upper_formant_line.clone_minus_me_db" data-fmt="int">–</span> to <span class="m" data-m="lines.L3.upper_formant_line.clone_minus_me_db" data-fmt="int">–</span> dB hot.</p>
+    <p class="byline">James Singleton</p>
+    <div class="readouts" id="readouts" role="group" aria-label="Key numbers">
+      <div class="readout" data-readout="pitch">
+        <div class="readout-value mono"><span class="m" data-m="lines.L1.f0_diff_st" data-fmt="st0">–</span><span class="sep">/</span><span class="m" data-m="lines.L2.f0_diff_st" data-fmt="st0">–</span><span class="sep">/</span><span class="m" data-m="lines.L3.f0_diff_st" data-fmt="st" data-prov="L3">–</span></div>
+        <div class="readout-label">Clone's median pitch vs. mine, lines 1 / 2 / 3, in semitones</div>
+      </div>
+      <div class="readout" data-readout="formant">
+        <div class="readout-value mono"><span class="m" data-m="lines.L1.upper_formant_line.clone_minus_me_db" data-fmt="db0">–</span><span class="sep">/</span><span class="m" data-m="lines.L2.upper_formant_line.clone_minus_me_db" data-fmt="db0">–</span><span class="sep">/</span><span class="m" data-m="lines.L3.upper_formant_line.clone_minus_me_db" data-fmt="dbu">–</span></div>
+        <div class="readout-label">How much more energy the clone puts into its upper formants (3–4 kHz), lines 1 / 2 / 3</div>
+      </div>
+      <div class="readout" data-readout="sib">
+        <div class="readout-value mono"><span class="m" data-m="lines.L3.s_in_so.clone_hotter_db" data-fmt="db+">–</span></div>
+        <div class="readout-label">How much hotter the clone's S in "So" sits against its vowel</div>
+      </div>
+    </div>
+    
+  </div>
+</header>
+
+<main id="main">
+
+<nav class="flow" aria-label="Page sections">
+  <a href="#method" data-stage="method"><span class="lamp-dot"></span>Setup</a>
+  <a href="#rubric" data-stage="rubric"><span class="lamp-dot"></span>Bar</a>
+  <a href="#line1" data-stage="line1"><span class="lamp-dot"></span>Line 1</a>
+  <a href="#line2" data-stage="line2"><span class="lamp-dot"></span>Line 2</a>
+  <a href="#line3" data-stage="line3"><span class="lamp-dot"></span>Line 3</a>
+  <a href="#across" data-stage="across"><span class="lamp-dot"></span>Measure</a>
+  <a href="#fix" data-stage="fix"><span class="lamp-dot"></span>Notes</a>
+</nav>
+
+<div class="cue-note"><span class="cue-rule" aria-hidden="true"></span><p>How this page runs: the setup, the bar I scored against, three takes heard side by side, the measurements behind what I heard, then my notes for the model team.</p></div>
+
+<section class="wrap section" id="method" aria-labelledby="method-h">
+  <p class="slate mono"><span class="lamp-dot"></span>Stage 1 of 5 · The setup</p>
+  <h2 id="method-h">How I tested</h2>
+  <ul class="method-list prose">
+    <li><strong>The voice:</strong> an ElevenLabs Professional Voice Clone of my own voice, trained on about an hour of audio recorded through ElevenLabs' guided scripts on my studio mic. ElevenLabs recommends 30 minutes minimum and 2–3 hours for best results. Model: Eleven v4.</li>
+    <li><strong>The lines:</strong> three lines written to break a voice in different ways, each tied to a Spotify use case: a DJ intro with hard names, an ad read with numbers, and a question with a pause.</li>
+    <li><strong>The comparison:</strong> my own read of each line, recorded before I heard the clone's version, against the clone's best take.</li>
+    <li><strong>Keepers:</strong> I generated each line several times across ElevenLabs' Stability and Similarity settings and kept the take closest to my own performance.</li>
+    <li><strong>Level:</strong> every clip matched to the same loudness before scoring.</li>
+    <li><strong>Scoring:</strong> my scores are an expert review, not blind.</li>
+    <li><strong>Figures:</strong> spectrograms and measurements made in Python from the same files. ElevenLabs only exported MP3 on my plan, so the figures show 0–12 kHz and my takes go through the same MP3 encoding before comparing. The file format isn't what's being judged.</li>
+  </ul>
+</section>
+
+<section class="wrap section" id="rubric" aria-labelledby="rubric-h">
+  <p class="slate mono"><span class="lamp-dot"></span>Stage 2 of 5 · The bar</p>
+  <h2 id="rubric-h">How I scored it</h2>
+  <p class="prose">Each clip gets 1 to 5 on seven qualities, plus a ship call. A 4 or a 2 falls between the anchors.</p>
+  <div class="table-scroll" role="region" aria-label="Scoring rubric" tabindex="0">
+    <table class="rubric">
+      <thead><tr><th scope="col">Quality</th><th scope="col"><span class="anchor mono">5</span></th><th scope="col"><span class="anchor mono">3</span></th><th scope="col"><span class="anchor mono">1</span></th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Naturalness</th><td>Can't tell it's synthetic</td><td>Clearly synthetic, easy to listen to</td><td>Robotic or distracting</td></tr>
+        <tr><th scope="row">Sounds like me</th><td>People who know me wouldn't question it</td><td>Same type of voice, not me</td><td>A different person</td></tr>
+        <tr><th scope="row">Tone</th><td>Matches the line's intent</td><td>Neutral where it should feel something</td><td>Wrong emotion</td></tr>
+        <tr><th scope="row">Pacing</th><td>Pauses and stress where a person puts them</td><td>Even and flat</td><td>Rushed or broken phrasing</td></tr>
+        <tr><th scope="row">Pronunciation</th><td>Every word right</td><td>One slip</td><td>Several slips</td></tr>
+        <tr><th scope="row">Accent</th><td>Holds across the line</td><td>Drifts once</td><td>Wanders</td></tr>
+        <tr><th scope="row">Audio quality</th><td>Clean</td><td>Light artifacts</td><td>Clicks, warble, noise</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose"><strong>Fit for use:</strong> ship as is, ship after fixes, or don't ship. One-off faults a post editor can fix ship after fixes; a fault that repeats across lines goes back to the model team.</p>
+  <p class="prose tags-def"><strong>Failure tags:</strong> <span class="chip">BREATH</span>, <span class="chip">PAUSE</span>, <span class="chip">STRESS</span>, <span class="chip">FLAT</span>, <span class="chip">EMO</span>, <span class="chip">PRON</span>, <span class="chip">CONS</span> (soft consonant), <span class="chip">SIB</span> (harsh S), <span class="chip">NUM</span>, <span class="chip">DRIFT</span>, <span class="chip">ART</span> (artifact), <span class="chip">CLICK</span>, <span class="chip">WORD</span>, <span class="chip">ROOM</span>.</p>
+</section>
+
+<div class="cue-note"><span class="cue-rule" aria-hidden="true"></span><p>That's the bar. Now the takes: my read first, then the clone. Press play and switch between them at the same moment, the way you'd A/B on a mix stage.</p></div>
+
+<!-- ===================== LINE 1 ===================== -->
+<section class="strip-section" id="line1" aria-labelledby="line1-h">
+<div class="wrap">
+  <p class="slate mono"><span class="lamp-dot"></span>Stage 3 of 5 · The takes · Line 1 of 3</p>
+  <h2 id="line1-h">Line 1: DJ intro</h2>
+  <div class="listen-for"><span class="lf-case mono">Use case: DJ intro with hard names</span><span class="lf-label mono">Listen for</span><ul><li>the exhale right after "Up next"</li><li>"Sigur Rós" coming apart</li><li>the "-er" in "Hozier"</li></ul></div>
+  <blockquote class="line-text"><p>"Up next, something new from Sigur Rós, then a throwback from Beyoncé and Hozier."</p></blockquote>
+
+  <div class="ab" data-line="L1" tabindex="0" role="group" aria-label="A/B player, line 1. Space plays or pauses, B switches take.">
+    <div class="ab-bar">
+      <button class="ab-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+      <div class="ab-takes" role="group" aria-label="Take">
+        <span class="ab-listen">Listen:</span>
+        <button type="button" class="take" data-take="L1_me" data-who="me" aria-pressed="true">me</button>
+        <span class="dot" aria-hidden="true">·</span>
+        <button type="button" class="take" data-take="L1_clone" data-who="clone" aria-pressed="false">clone</button>
+      </div>
+      <span class="ab-time mono" aria-live="off">0.00 s</span>
+      <span class="ab-hint mono">Space play · B switch</span>
+    </div>
+    <div class="spec-frame"><div class="spec" data-strip></div></div>
+    <ul class="callout-list" data-callouts="L1"></ul>
+  </div>
+
+  <div class="scorecard">
+    <div class="table-scroll" role="region" aria-label="Line 1 scores" tabindex="0">
+      <table class="scores">
+        <thead><tr><th scope="col">Naturalness</th><th scope="col">Like me</th><th scope="col">Tone</th><th scope="col">Pacing</th><th scope="col">Pronunciation</th><th scope="col">Accent</th><th scope="col">Audio</th><th scope="col">Fit</th></tr></thead>
+        <tbody><tr><td data-score="3">3</td><td data-score="5">5</td><td data-score="3">3</td><td data-score="3">3</td><td data-score="3">3</td><td data-score="5">5</td><td data-score="3">3</td><td data-fit="fix">Ship after fixes</td></tr></tbody>
+      </table>
+    </div>
+    <p class="keeper"><strong>Tags:</strong> <span class="chip">BREATH ×2</span>, <span class="chip">PAUSE</span>, <span class="chip">ART</span></p>
+  <p class="thread"><span class="thread-tag mono">Through line</span> Character formants on "Hozier": the clone puts <span class="m" data-m="formant_map.rows.0.upper_diff_db" data-fmt="db+">–</span> more energy around 3–4 kHz than I do. <a href="#figF">Figure 5</a></p>
+  </div>
+
+  <div class="hear prose">
+    <p><strong>What I hear:</strong> It's unmistakably my voice, but pushed up into a bright, high-energy DJ register I don't naturally use, at every setting I tried.</p>
+    <p>The bigger problem is breath. There's an audible exhale right after "Up next," exactly where a performer would hold air to carry that line, and a second one after "Sigur Rós." If a voice actor did this in my session, I'd stop them: two exhales in one energetic line leave no breath support for the finish. If a breath belongs anywhere, it's a quick inhale after the band name.</p>
+    <p>"Sigur Rós" also comes out as two separate words with a gap, so it doesn't land as a band name.</p>
+    <p>The subtler tell is "Hozier," and it took a trained ear to catch. The clone loses its low end there, as if someone EQ'd it thin, and the "-er" carries a fry-like crackle with none of the low-frequency energy real vocal fry has. My read has fry there too, but it has low-end support under it, so it reads as vocal folds, not crackle. Real fry is the folds going slack and closing in slow, uneven pulses, and every pulse still carries the body of the voice. The clone has the clicks without the body. That mismatch is what tells my ear it isn't a person.</p>
+    <p>Ship after fixes. The crackle and the stray breaths are one-off edits I could clean up in post, and I could edit around the split band name. If these faults repeated across lines, I'd send it back to the model team instead.</p>
+  </div>
+
+  <figure class="fig" id="figA" data-fig="A">
+    <div class="fig-head"><span class="fig-no mono">Figure 1</span><span class="fig-meta mono">log frequency 20 Hz – 8 kHz · aligned on word onset · same dB scale and windows for both takes</span></div>
+    <p class="fig-lead">Zoomed in on the last word, "Hozier": me on top, the clone below.</p>
+    <div class="pair pair-stack" data-panels></div>
+    <div class="subf0">
+      <div class="subf0-head">How much low end the voice carries (80–300 Hz: the fundamental and first harmonics), with both takes at the same overall loudness</div>
+      <div class="legend" aria-hidden="true"><span class="lg-item"><span class="key key-me"></span>Me</span> <span class="lg-item"><span class="key key-clone"></span>Clone</span></div>
+      <div class="chart" data-chart="lowend" role="img" aria-label="Low end of the voice across Hozier, me vs. clone."></div>
+      <dl class="mini-readouts mini-row">
+        <div><dt>Low end, clone vs. me: across the word / on the "-er"</dt><dd class="mono"><span class="m" data-m="lines.L1.low_end.clone_minus_me_word_db" data-fmt="db+">–</span> / <span class="m" data-m="lines.L1.low_end.clone_minus_me_er_db" data-fmt="db+">–</span></dd></div>
+        <div><dt>Low-to-mid balance (80–300 Hz against 300–3,000 Hz), the "thin EQ" number</dt><dd class="mono"><span class="tag-me">me</span> <span class="m" data-m="lines.L1.low_end.me.balance_word_db" data-fmt="db+">–</span> <span class="tag-clone">clone</span> <span class="m" data-m="lines.L1.low_end.clone.balance_word_db" data-fmt="db+">–</span> across the word · <span class="tag-me">me</span> <span class="m" data-m="lines.L1.low_end.me.balance_er_db" data-fmt="db+">–</span> <span class="tag-clone">clone</span> <span class="m" data-m="lines.L1.low_end.clone.balance_er_db" data-fmt="db+">–</span> on the "-er"</dd></div>
+      </dl>
+    </div>
+    <div class="subf0">
+      <div class="subf0-head">Below the fundamental (20–45 Hz), across the word</div>
+      <div class="legend" aria-hidden="true"><span class="lg-item"><span class="key key-me"></span>Me</span> <span class="lg-item"><span class="key key-clone"></span>Clone</span> <span class="lg-item"><span class="key key-room"></span>My room floor</span></div>
+      <div class="chart" data-chart="subF0" role="img" aria-label="Level below the fundamental across Hozier, me vs. clone."></div>
+      <p class="band-note">Mine sits near my room floor until the fry on the "-er" lifts it; the clone's holds steady.</p>
+      <dl class="mini-readouts">
+        <div><dt>How much it moves across the word (10th to 90th percentile)</dt><dd class="mono"><span class="tag-me">me</span> <span class="m" data-m="lines.L1.sub_f0.me.swing_p10_p90_db" data-fmt="db">–</span> <span class="tag-clone">clone</span> <span class="m" data-m="lines.L1.sub_f0.clone.swing_p10_p90_db" data-fmt="db">–</span> <span class="tag-me">me, raw (before MP3 matching)</span> <span class="m" data-m="lines.L1.sub_f0.me_raw.swing_p10_p90_db" data-fmt="db">–</span></dd></div>
+      </dl>
+    </div>
+    <ul class="callout-list" data-callouts="A"></ul>
+    <figcaption>"Hozier," me vs. clone. The fundamental sits in about the same place, but below it my take still has texture and the clone's is a smooth smear. The clone's pitch also bends down and back up twice across the word, where mine falls in one steady line and dips once into the "-er": that's the DJ energy, visible.</figcaption>
+  </figure>
+</div>
+</section>
+
+<!-- ===================== LINE 2 ===================== -->
+<section class="strip-section" id="line2" aria-labelledby="line2-h">
+<div class="wrap">
+  <p class="slate mono"><span class="lamp-dot"></span>Stage 3 of 5 · The takes · Line 2 of 3</p>
+  <h2 id="line2-h">Line 2: ad read</h2>
+  <div class="listen-for"><span class="lf-case mono">Use case: ad read with numbers</span><span class="lf-label mono">Listen for</span><ul><li>the extra brightness on "Get" and "then"</li></ul></div>
+  <blockquote class="line-text"><p>"Get 3 months free, then $11.99 a month. Terms at spotify.com/premium."</p></blockquote>
+
+  <div class="ab" data-line="L2" tabindex="0" role="group" aria-label="A/B player, line 2. Space plays or pauses, B switches take.">
+    <div class="ab-bar">
+      <button class="ab-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+      <div class="ab-takes" role="group" aria-label="Take">
+        <span class="ab-listen">Listen:</span>
+        <button type="button" class="take" data-take="L2_me" data-who="me" aria-pressed="true">me</button>
+        <span class="dot" aria-hidden="true">·</span>
+        <button type="button" class="take" data-take="L2_clone" data-who="clone" aria-pressed="false">clone</button>
+      </div>
+      <span class="ab-time mono" aria-live="off">0.00 s</span>
+      <span class="ab-hint mono">Space play · B switch</span>
+    </div>
+    <div class="spec-frame"><div class="spec" data-strip></div></div>
+    <ul class="callout-list" data-callouts="L2"></ul>
+  </div>
+
+  <div class="scorecard">
+    <div class="table-scroll" role="region" aria-label="Line 2 scores" tabindex="0">
+      <table class="scores">
+        <thead><tr><th scope="col">Naturalness</th><th scope="col">Like me</th><th scope="col">Tone</th><th scope="col">Pacing</th><th scope="col">Pronunciation</th><th scope="col">Accent</th><th scope="col">Audio</th><th scope="col">Fit</th></tr></thead>
+        <tbody><tr><td data-score="4">4</td><td data-score="4">4</td><td data-score="4">4</td><td data-score="5">5</td><td data-score="5">5</td><td data-score="5">5</td><td data-score="4">4</td><td data-fit="fix">Ship after a light fix</td></tr></tbody>
+      </table>
+    </div>
+    <p class="keeper"><strong>Tags:</strong> <span class="chip">ART ×2</span></p>
+  <p class="thread"><span class="thread-tag mono">Through line</span> Character formants on "Get" and "then": the clone puts <span class="m" data-m="formant_map.rows.1.upper_diff_db" data-fmt="db+">–</span> and <span class="m" data-m="formant_map.rows.2.upper_diff_db" data-fmt="db+">–</span> more energy around 3–4 kHz. <a href="#figF">Figure 5</a></p>
+  </div>
+
+  <div class="hear prose">
+    <p><strong>What I hear:</strong> This is the most shippable line in the test, and the closest to my own read. It's still pitched a little high and a little energetic, but an ad read can carry that energy, so it lands near how I'd do it.</p>
+    <p>The one issue is light, and it isn't spit. On "Get" and again on "then," right where the read pushes energy, the clone puts about <span class="m" data-m="lines.L2.upper_formant.words.then.clone_minus_me_db" data-fmt="1">–</span> to <span class="m" data-m="lines.L2.upper_formant.words.Get.clone_minus_me_db" data-fmt="1">–</span> dB more energy into the upper formants, around 3–4 kHz, than my voice does. The first two formants mostly set the vowel; the higher ones carry more of a speaker's individual character, and that's where it stops sounding like me. It runs hot on all three lines, and "Get" is the hottest word I measured. Same frequencies; they're just too loud. It's still a light fix: a non-destructive spectral repair on just those formants, and since it comes across a little like crackle, a light batch de-crackle after generation.</p>
+    <p>One line I'd hold firm on: batch processing is fine for finished output, never for the recordings a voice is trained on. Whatever goes into the training audio, artifacts included, becomes part of what the model learns.</p>
+  </div>
+
+  <figure class="fig" id="figD" data-fig="D">
+    <div class="fig-head"><span class="fig-no mono">Figure 2</span><span class="fig-meta mono">0–6 kHz linear · aligned on each word's onset · same dB scale</span></div>
+    <p class="fig-lead">Zoomed in on "Get" and "then": me on the left, the clone on the right.</p>
+    <div data-panels></div>
+    <div class="subf0">
+      <div class="subf0-head">Energy around the character formants (3–4 kHz), me vs. the clone</div>
+      <div class="legend" aria-hidden="true"><span class="lg-item"><span class="key key-me"></span>Me</span> <span class="lg-item"><span class="key key-clone"></span>Clone</span></div>
+      <div class="chart" data-chart="upper" role="img" aria-label="Energy around the upper formants on Get and then, me vs. clone."></div>
+      <dl class="mini-readouts mini-row">
+        <div><dt>Where those formants sit: largest gap from mine in frequency <span class="dt-note">(estimates move a few percent with the settings)</span></dt><dd class="mono"><span class="m" data-m="lines.L2.upper_formant.formant_freq_max_diff_pct" data-fmt="pct">–</span></dd></div>
+        <div><dt>How much more energy the clone puts there: "Get" / "then"</dt><dd class="mono"><span class="m" data-m="lines.L2.upper_formant.words.Get.clone_minus_me_db" data-fmt="db+">–</span> / <span class="m" data-m="lines.L2.upper_formant.words.then.clone_minus_me_db" data-fmt="db+">–</span></dd></div>
+      </dl>
+    </div>
+    <ul class="callout-list" data-callouts="D"></ul>
+    <figcaption>"Get" and "then": same upper formants, louder. The clone puts more energy around 3–4 kHz than I do, and more than its own average for the line, while the formants themselves land in about the same place as mine, within the precision of the estimate. On a spectrogram it shows as a brighter horizontal band through the vowel, not the thin vertical streaks of a click.</figcaption>
+    <details class="table-view"><summary>Table</summary><div data-table="upper"></div></details>
+  </figure>
+</div>
+</section>
+
+<!-- ===================== LINE 3 ===================== -->
+<section class="strip-section" id="line3" aria-labelledby="line3-h">
+<div class="wrap">
+  <p class="slate mono"><span class="lamp-dot"></span>Stage 3 of 5 · The takes · Line 3 of 3</p>
+  <h2 id="line3-h">Line 3: question and pacing</h2>
+  <div class="listen-for"><span class="lf-case mono">Use case: a question with a pause</span><span class="lf-label mono">Listen for</span><ul><li>clone 1 breathing twice</li><li>the S in "So"</li><li>the jump on "what are you in the mood for"</li></ul></div>
+  <blockquote class="line-text"><p>"So... what are you in the mood for tonight? Something slow?"</p></blockquote>
+
+  <div class="ab" data-line="L3" tabindex="0" role="group" aria-label="A/B player, line 3. Space plays or pauses, B switches take.">
+    <div class="ab-bar">
+      <button class="ab-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+      <div class="ab-takes" role="group" aria-label="Take">
+        <span class="ab-listen">Listen:</span>
+        <button type="button" class="take" data-take="L3_me" data-who="me" aria-pressed="true">me</button>
+        <span class="dot" aria-hidden="true">·</span>
+        <button type="button" class="take" data-take="L3_clone1" data-who="clone" aria-pressed="false">clone 1 (rejected)</button>
+        <span class="dot" aria-hidden="true">·</span>
+        <button type="button" class="take" data-take="L3_clone2" data-who="clone" aria-pressed="false">clone 2 (keeper)</button>
+      </div>
+      <span class="ab-time mono" aria-live="off">0.00 s</span>
+      <span class="ab-hint mono">Space play · B switch</span>
+    </div>
+    <div class="spec-frame"><div class="spec" data-strip></div></div>
+    <ul class="callout-list" data-callouts="L3"></ul>
+  </div>
+
+  <div class="scorecard">
+    <div class="table-scroll" role="region" aria-label="Line 3 scores" tabindex="0">
+      <table class="scores scores-takes">
+        <thead><tr><th scope="col">Take</th><th scope="col">Naturalness</th><th scope="col">Like me</th><th scope="col">Tone</th><th scope="col">Pacing</th><th scope="col">Pronunciation</th><th scope="col">Accent</th><th scope="col">Audio</th><th scope="col">Fit</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Clone 1 (rejected)</th><td data-score="3">3</td><td data-score="4">4</td><td data-score="4">4</td><td data-score="3">3</td><td data-score="4">4</td><td data-score="5">5</td><td data-score="4">4</td><td data-fit="hold">Don't ship</td></tr>
+          <tr><th scope="row">Clone 2 (keeper)</th><td data-score="4">4</td><td data-score="4">4</td><td data-score="4">4</td><td data-score="4">4</td><td data-score="4">4</td><td data-score="5">5</td><td data-score="4">4</td><td data-fit="fix">Ship after fixes (de-ess)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="keeper"><strong>Tags:</strong> <span class="chip">SIB</span>. Rejected takes: <span class="chip">BREATH ×2</span>, <span class="chip">CLICK</span></p>
+  <p class="thread"><span class="thread-tag mono">Through line</span> Character formants on "So" and "what are you in the mood for": <span class="m" data-m="formant_map.rows.3.upper_diff_db" data-fmt="db+">–</span> and <span class="m" data-m="formant_map.rows.4.upper_diff_db" data-fmt="db+">–</span> more energy around 3–4 kHz. <a href="#figF">Figure 5</a></p>
+  </div>
+
+  <div class="hear prose">
+    <p><strong>What I hear:</strong> This line shows how small the gap is between a giveaway and a keeper. Two generations at the same settings, both with great pitch and performance. The first one breathes twice: a mouth exhale after "So," then a nasal exhale after "tonight." That second breath is a dead giveaway. Nobody spends air twice in a line this short. It isn't just the count, though. The exhale after "So" starts while the vowel is still sounding, sitting right on the fundamental, so cutting it means cutting into the voice. Newer repair tools could probably save it, but a potentially destructive edit is reason enough to send it back and get the model to stop doing it.</p>
+    <p>The second generation goes straight from "So" into "What are you in the mood for tonight?" with one slight nasal exhale before "Something slow?" One breath, in the right place, and it's believable: it sounds like a real person talking. That's the keeper.</p>
+    <p>It's pitched up, and five takes couldn't bring it down. It doesn't start high, though: on "So" it sits below me, then jumps almost an octave on "What are you in the mood for" while I settle. "What are you in the mood for" sounds excited, which this line can carry. Both of us soften the T in "tonight," so I don't count that against it.</p>
+    <p>What I didn't catch until I compared the two: the S in "So." A real S is turbulent air, a texture with no pitch in it. The clone's S has a narrow, tonal streak running through it, almost like a fundamental, and mine has nothing like it. That's what makes it harsh in a way that isn't realistic, not just bright. I could attenuate it and ship this line. If every line did it, I'd send it back to the model team.</p>
+  </div>
+
+  <figure class="fig" id="figB" data-fig="B">
+    <div class="fig-head"><span class="fig-no mono">Figure 3</span><span class="fig-meta mono">0–12 kHz linear · aligned on S onset · same dB scale</span></div>
+    <p class="fig-lead">Zoomed in on the S at the start of "So": me on the left, the clone on the right.</p>
+    <div class="explain">
+      <p>An S is air forced through the narrow gap between the tongue and the ridge behind the front teeth. It's a hiss, so it has no fundamental: the energy gathers where the small space in front of that gap resonates, then tapers off toward the top.</p>
+      <p>Mine does that: centered near <span class="m" data-m="lines.L3.s_in_so.me.centroid_hz" data-fmt="khz">–</span> and rolling off <span class="m" data-m="lines.L3.s_in_so.me.rolloff_8_12k_db_per_khz" data-fmt="dbpk">–</span> per kHz above 8 kHz. The clone's has one narrow, steady resonance near <span class="m" data-m="lines.L3.s_in_so.clone.peak_hz" data-fmt="khz">–</span>, there all the way through the S: a whistle hidden in the hiss. Its energy sits lower (<span class="m" data-m="lines.L3.s_in_so.clone.centroid_hz" data-fmt="khz">–</span> center) and tapers off far less at the very top (<span class="m" data-m="lines.L3.s_in_so.clone.rolloff_8_12k_db_per_khz" data-fmt="dbpk">–</span> per kHz). That isn't how a mouth filters air. It doesn't just sound machine-made; it looks it.</p>
+    </div>
+    <div class="figB-grid">
+      <div class="pair pair-side" data-panels></div>
+      <div class="figB-side">
+        <div class="legend" aria-hidden="true"><span class="lg-item"><span class="key key-me"></span>Me</span> <span class="lg-item"><span class="key key-clone"></span>Clone</span></div>
+        <div class="chart" data-chart="Bspec" role="img" aria-label="Averaged spectrum of the S, 2 to 12 kHz, me vs. clone."></div>
+        <dl class="mini-readouts">
+          <div><dt>S vs. following vowel</dt><dd class="mono"><span class="tag-me">me</span> <span class="m" data-m="lines.L3.s_in_so.me.s_minus_vowel_db" data-fmt="db">–</span> <span class="tag-clone">clone</span> <span class="m" data-m="lines.L3.s_in_so.clone.s_minus_vowel_db" data-fmt="db">–</span></dd></div>
+          <div><dt>Spectral flatness, 2–12 kHz <span class="dt-note">(higher = more noise-like)</span></dt><dd class="mono"><span class="tag-me">me</span> <span class="m" data-m="lines.L3.s_in_so.me.flatness_2_12k" data-fmt="2">–</span> <span class="tag-clone">clone</span> <span class="m" data-m="lines.L3.s_in_so.clone.flatness_2_12k" data-fmt="2">–</span></dd></div>
+          <div><dt>At <span class="m" data-m="lines.L3.s_in_so.clone.peak_hz" data-fmt="khz">–</span>, how far the S stands above the frequencies right around it <span class="dt-note">(0.5–1.5 kHz either side)</span></dt><dd class="mono"><span class="tag-me">me</span> <span class="m" data-m="lines.L3.s_in_so.me.prominence_at_clone_peak_db" data-fmt="db+">–</span> <span class="tag-clone">clone</span> <span class="m" data-m="lines.L3.s_in_so.clone.peak_prominence_db" data-fmt="db+">–</span></dd><dd class="mono dd-note">clone, across reasonable analysis settings: <span class="m" data-m="lines.L3.s_in_so.clone.peak_prominence_range_db.0" data-fmt="1">–</span>–<span class="m" data-m="lines.L3.s_in_so.clone.peak_prominence_range_db.1" data-fmt="1">–</span> dB</dd></div>
+          <div><dt>Top-end roll-off, 8–12 kHz <span class="dt-note">(a mouth tapers off; more negative = more taper)</span></dt><dd class="mono"><span class="tag-me">me</span> <span class="m" data-m="lines.L3.s_in_so.me.rolloff_8_12k_db_per_khz" data-fmt="dbpk">–</span> <span class="tag-clone">clone</span> <span class="m" data-m="lines.L3.s_in_so.clone.rolloff_8_12k_db_per_khz" data-fmt="dbpk">–</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <ul class="callout-list" data-callouts="B"></ul>
+    <figcaption>The S in "So," me vs. clone, 0–12 kHz, both through the same MP3 encoding.</figcaption>
+    <details class="table-view"><summary>Table</summary><div data-table="Bspec"></div></details>
+  </figure>
+</div>
+</section>
+
+<div class="cue-note"><span class="cue-rule" aria-hidden="true"></span><p>Three lines heard. Now the same measurements across all of them, so one take can't carry the story.</p></div>
+
+<section class="strip-section" id="across" aria-labelledby="across-h">
+<div class="wrap">
+  <p class="slate mono"><span class="lamp-dot"></span>Stage 4 of 5 · The measurements</p>
+  <h2 id="across-h">Across all three lines</h2>
+  <figure class="fig" id="figC">
+    <div class="fig-head"><span class="fig-no mono">Figure 4</span><span class="fig-meta mono">pitch (pYIN), semitones relative to my median · aligned on speech start</span></div>
+    <p class="fig-lead">Pitch over time, line by line, the way a pitch editor like Melodyne draws it. 0 is my median pitch; 12 semitones is an octave.</p>
+    <div class="legend" aria-hidden="true"><span class="lg-item"><span class="key key-me"></span>Me</span> <span class="lg-item"><span class="key key-clone"></span>Clone</span> <span class="lg-item"><span class="key key-median"></span>Phrase median, thick bar in each voice's color (label: clone vs. me)</span></div>
+    <div class="chart" data-chart="C" role="img" aria-label="Pitch contours for lines 1, 2 and 3, me vs. clone."></div>
+    <figcaption>Pitch, line by line. The clone sits above my median on every line shown: <span class="m" data-m="lines.L1.f0_diff_st" data-fmt="st">–</span> on line 1, <span class="m" data-m="lines.L2.f0_diff_st" data-fmt="st">–</span> on line 2, <span class="m" data-m="lines.L3.f0_diff_st" data-fmt="st" data-prov="L3">–</span> on line 3. Gaps are where pYIN finds no pitch: unvoiced sounds, silence and some creak.</figcaption>
+    <details class="table-view"><summary>Table</summary><div data-table="C"></div></details>
+  </figure>
+
+  <figure class="fig" id="figF">
+    <div class="fig-head"><span class="fig-no mono">Figure 5</span><span class="fig-meta mono">the character formants, word by word · LPC estimates, voiced frames only</span></div>
+    <p class="fig-lead">The through line. Formants are the resonances of the throat and mouth, the peaks that shape a voice. The first two mostly decide the vowel; the higher ones, around 2.5–4 kHz, carry more of a speaker's character. Here are those character formants for every word I measured: where the third and fourth sit (left), and how much energy sits up there, 3–4 kHz (right). Each word is averaged over its voiced frames, so its length doesn't matter.</p>
+    <div class="legend" aria-hidden="true"><span class="lg-item"><span class="key key-me"></span>Me</span> <span class="lg-item"><span class="key key-clone"></span>Clone</span></div>
+    <div class="fmap-grid">
+      <div><div class="subf0-head">Where they sit (third and fourth formants, Hz)</div><div class="chart" data-chart="fpos" role="img" aria-label="Upper formant frequencies per word, me vs. clone."></div></div>
+      <div><div class="subf0-head">How much energy sits up there (3–4 kHz, around the fourth formant, dB)</div><div class="chart" data-chart="flevel" role="img" aria-label="Upper formant energy per word, me vs. clone."></div></div>
+    </div>
+    <dl class="mini-readouts mini-row">
+      <div><dt>Where they sit: largest gap from mine, across five estimate settings</dt><dd class="mono"><span class="m" data-m="formant_map.summary.upper_formants_gap_range_pct.0" data-fmt="1">–</span>–<span class="m" data-m="formant_map.summary.upper_formants_gap_range_pct.1" data-fmt="pct">–</span></dd></div>
+      <div><dt>How loud: words where the clone runs hotter, and by how much</dt><dd class="mono"><span class="m" data-m="formant_map.summary.words_clone_hotter" data-fmt="int">–</span> of <span class="m" data-m="formant_map.summary.words" data-fmt="int">–</span> · <span class="m" data-m="formant_map.summary.upper_diff_min_db" data-fmt="db+">–</span> to <span class="m" data-m="formant_map.summary.upper_diff_max_db" data-fmt="db+">–</span></dd></div>
+    </dl>
+    <figcaption>Same places, more energy. Word by word, the clone's character formants land close to where mine do, within the precision of the estimate, while the energy around them runs hotter on every word. The voice is in the right shape; the character is turned up.</figcaption>
+    <details class="table-view"><summary>Table, all four formants</summary><div data-table="fmap"></div></details>
+  </figure>
+
+  
+</div>
+</section>
+
+<div class="cue-note"><span class="cue-rule" aria-hidden="true"></span><p>From measurements to notes: what I'd send back, and what a post editor can handle.</p></div>
+
+<section class="wrap section" id="fix" aria-labelledby="fix-h">
+  <p class="slate mono"><span class="lamp-dot"></span>Stage 5 of 5 · The notes</p>
+  <h2 id="fix-h">What the model team should fix</h2>
+  <div class="fix-block">
+    <p class="prose">Ranked by how often each problem came up. My rule: a one-off fault a post editor can fix ships after fixes; a fault that repeats goes back to the model team. Each line's verdict above is about that line alone; this list is about the model across all three.</p>
+    <ol class="fix-list">
+      <li><span class="fix-what"><strong>The character formants run hot.</strong> The upper formants, on every word I measured, all three lines: <span class="m" data-m="formant_map.summary.upper_diff_min_db" data-fmt="1">–</span> to <span class="m" data-m="formant_map.summary.upper_diff_max_db" data-fmt="1">–</span> dB more energy at 3–4 kHz.</span> <span class="verdict model">The model has to change</span></li>
+      <li><span class="fix-what"><strong>Pitch sits high and doesn't come down.</strong> All three lines, <span class="m" data-m="lines.L1.f0_diff_st" data-fmt="int">–</span> to <span class="m" data-m="lines.L3.f0_diff_st" data-fmt="int">–</span> semitones; five takes couldn't bring line 3 down.</span> <span class="verdict model">The model has to change</span></li>
+      <li><span class="fix-what"><strong>Extra breaths.</strong> Two of three lines: line 1, and line 3's rejected take. On one line they're post edits, but they repeat, and in line 3 the exhale sits on the end of the vowel, so cutting it risks the voice.</span> <span class="verdict model">Back to the model team</span></li>
+      <li><span class="fix-what"><strong>Harsh, tonal S.</strong> Line 3.</span> <span class="verdict post">Fixable in post: de-ess</span></li>
+      <li><span class="fix-what"><strong>Crackle on "Hozier."</strong> Line 1.</span> <span class="verdict post">Fixable in post</span></li>
+      <li><span class="fix-what"><strong>"Sigur Rós" split in two.</strong> Line 1.</span> <span class="verdict post">Fixable in post: edit</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap section" id="next" aria-labelledby="next-h">
+  <h2 id="next-h">Next step</h2>
+  <p class="prose next-line">Next, I'd run the same rubric and these three lines through other voice models, and add blind listeners so the scores aren't mine alone.</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <h2 class="footer-h">Method details</h2>
+    <ul class="footer-list">
+      <li>Bounces: 48 kHz, 24-bit mono WAV. The clone takes were exported from ElevenLabs as MP3 and bounced to WAV in Pro Tools.</li>
+      <li>MP3 matching: ElevenLabs exported 192 kbps MP3 at 44.1 kHz, and the clone audio stops near 15.7 kHz. My takes go through the same encoding with the same ceiling (ffmpeg, libmp3lame), then back to 48 kHz, before any comparison or player clip is made.</li>
+      <li>Analysis level: every take normalized to −23 LUFS integrated (ITU-R BS.1770, pyloudnorm) before measuring.</li>
+      <li>Players: every clip at <span class="m" data-m="player.target" data-fmt="lufs">–</span> integrated, true peak at or below −1 dBTP, 192 kbps MP3; spread between clips <span class="m" data-m="player.spread" data-fmt="lu">–</span>. The A/B switch keeps the playhead aligned on speech start.</li>
+      <li>Pitch: pYIN, 60–400 Hz, 10 ms hop. Line and phrase values are checked against the harmonic spacing in the spectrum to rule out octave errors; a value that fails is withheld. With other reasonable pYIN settings the whole-line offsets move by up to <span class="m" data-m="pitch_settings_max_shift_st" data-fmt="pm">–</span>. A phrase where either take drops into vocal fry is marked not comparable, because pYIN tracks fry in one take and drops it in the other.</li>
+      <li>Spectrograms: one dB scale and one colormap per figure, nothing above 12 kHz.</li>
+    </ul>
+    <details class="table-view raw-levels"><summary>Raw file loudness and true peak</summary><div data-table="raw"></div></details>
+    <p class="footer-links"><a href="analysis/README.md">Analysis code and how to reproduce</a> · <a href="data/measures.json">Raw measurements (JSON)</a></p>
+    <p class="footer-note">Independent study. Not affiliated with or endorsed by ElevenLabs or Spotify.</p>
+    <p class="credit">Analysis, writing and audio by James Singleton.</p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

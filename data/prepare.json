@@ -1,0 +1,77 @@
+{
+  "files": {
+    "L1_me": {
+      "raw_lufs": -21.78,
+      "raw_true_peak_dbtp": -1.22,
+      "raw_duration_s": 5.672,
+      "comparison_source": "mp3match",
+      "player_lufs": -22.26,
+      "player_true_peak_dbtp": -1.74,
+      "player_file": "audio/L1_me.mp3",
+      "player_duration_s": 5.672
+    },
+    "L1_clone": {
+      "raw_lufs": -21.18,
+      "raw_true_peak_dbtp": -3.93,
+      "raw_duration_s": 5.881,
+      "comparison_source": "raw",
+      "player_lufs": -22.26,
+      "player_true_peak_dbtp": -5.03,
+      "player_file": "audio/L1_clone.mp3",
+      "player_duration_s": 5.881
+    },
+    "L2_me": {
+      "raw_lufs": -23.7,
+      "raw_true_peak_dbtp": -6.57,
+      "raw_duration_s": 7.424,
+      "comparison_source": "mp3match",
+      "player_lufs": -22.26,
+      "player_true_peak_dbtp": -5.15,
+      "player_file": "audio/L2_me.mp3",
+      "player_duration_s": 7.424
+    },
+    "L2_clone": {
+      "raw_lufs": -21.92,
+      "raw_true_peak_dbtp": -3.96,
+      "raw_duration_s": 6.882,
+      "comparison_source": "raw",
+      "player_lufs": -22.26,
+      "player_true_peak_dbtp": -4.3,
+      "player_file": "audio/L2_clone.mp3",
+      "player_duration_s": 6.882
+    },
+    "L3_me": {
+      "raw_lufs": -27.07,
+      "raw_true_peak_dbtp": -9.58,
+      "raw_duration_s": 6.256,
+      "comparison_source": "mp3match",
+      "player_lufs": -22.26,
+      "player_true_peak_dbtp": -4.76,
+      "player_file": "audio/L3_me.mp3",
+      "player_duration_s": 6.256
+    },
+    "L3_clone1": {
+      "raw_lufs": -25.94,
+      "raw_true_peak_dbtp": -8.33,
+      "raw_duration_s": 4.213,
+      "comparison_source": "raw",
+      "player_lufs": -22.26,
+      "player_true_peak_dbtp": -4.65,
+      "player_file": "audio/L3_clone1.mp3",
+      "player_duration_s": 4.213
+    },
+    "L3_clone2": {
+      "raw_lufs": -25.39,
+      "raw_true_peak_dbtp": -9.24,
+      "raw_duration_s": 4.296,
+      "comparison_source": "raw",
+      "player_lufs": -22.26,
+      "player_true_peak_dbtp": -6.12,
+      "player_file": "audio/L3_clone2.mp3",
+      "player_duration_s": 4.296
+    }
+  },
+  "duplicates": [],
+  "draft": false,
+  "player_lufs_spread_lu": 0.0
+}
