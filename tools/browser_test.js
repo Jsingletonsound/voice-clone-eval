@@ -2,10 +2,12 @@
 // Optional dev tool, not needed to view the site:
 //   npm install puppeteer-core
 //   CHROME="/path/to/chrome" node tools/browser_test.js
-// Opens index.html from disk with file access allowed, so data and audio load as on a server.
+//   PAGE_URL="https://jsingletonsound.github.io/voice-clone-eval/" node tools/browser_test.js   (test the live site)
+// By default opens index.html from disk with file access allowed, so data and audio load as on a server.
 const puppeteer = require("puppeteer-core");
 const path = require("path");
-const URL = "file://" + path.resolve(__dirname, "..", "index.html");
+const FILE_URL = "file://" + path.resolve(__dirname, "..", "index.html");
+const URL = process.env.PAGE_URL || FILE_URL;
 const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const results = [];
@@ -217,7 +219,9 @@ async function open(page) {
   const plain = await puppeteer.launch({ executablePath: CHROME, headless: "new" });
   const pp = await plain.newPage();
   await pp.setViewport({ width: 1280, height: 900 });
-  await open(pp);
+  await pp.goto(FILE_URL, { waitUntil: "networkidle0" });
+  await pp.addStyleTag({ content: "html{scroll-behavior:auto!important}" });
+  await sleep(600);
   for (const L of ["line1", "line2", "line3"]) {
     await pp.evaluate((l) => document.querySelector(`#${l} .ab`).scrollIntoView({ block: "center" }), L);
     await pp.click(`#${L} .ab-play`);
